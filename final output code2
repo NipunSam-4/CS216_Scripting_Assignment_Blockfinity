@@ -1,0 +1,126 @@
+(bitcoin_env) nipun-samal@nipun-samal-HP-Pavilion-Laptop-14-ec1xxx:~/Downloads$ python code2.py
+
+Connected to Bitcoin Core RPC
+
+DEBUG:BitcoinRPC:-1-> loadwallet ["mywallet"]
+DEBUG:BitcoinRPC:<-- {"result":null,"error":{"code":-35,"message":"Wallet \"mywallet\" is already loaded."},"id":1}
+
+
+Error with wallet: -35: Wallet "mywallet" is already loaded.
+
+DEBUG:BitcoinRPC:-2-> getbalance []
+DEBUG:BitcoinRPC:<-2- 50.0
+DEBUG:BitcoinRPC:-3-> getnewaddress ["", "p2sh-segwit"]
+DEBUG:BitcoinRPC:<-3- "2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG"
+DEBUG:BitcoinRPC:-4-> getnewaddress ["", "p2sh-segwit"]
+DEBUG:BitcoinRPC:<-4- "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9"
+DEBUG:BitcoinRPC:-5-> getnewaddress ["", "p2sh-segwit"]
+DEBUG:BitcoinRPC:<-5- "2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU"
+
+SegWit Address A': 2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG
+SegWit Address B': 2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9
+SegWit Address C': 2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU
+
+DEBUG:BitcoinRPC:-6-> sendtoaddress ["2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG", 1.0]
+DEBUG:BitcoinRPC:<-6- "2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78"
+
+Funding transaction: 2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78
+
+DEBUG:BitcoinRPC:-7-> getnewaddress []
+DEBUG:BitcoinRPC:<-7- "bcrt1q4ymqqt89p7vjtkq8zfwen8up6nx8qsqh37dxyq"
+DEBUG:BitcoinRPC:-8-> generatetoaddress [1, "bcrt1q4ymqqt89p7vjtkq8zfwen8up6nx8qsqh37dxyq"]
+DEBUG:BitcoinRPC:<-8- ["28891a31c76171662120dcd808e1576a0e349d6475e43c392d185346f8238f81"]
+DEBUG:BitcoinRPC:-9-> listunspent [1, 9999999, ["2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG"]]
+DEBUG:BitcoinRPC:<-9- [{"txid": "2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78", "vout": 1, "address": "2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG", "label": "", "redeemScript": "0014e5428bb121740bd6230cd189fd7abfb75436960d", "scriptPubKey": "a9142fb7eacfd19ad7f6bc05aed27101739df49af60087", "amount": 1.0, "confirmations": 1, "spendable": true, "solvable": true, "desc": "sh(wpkh([d8d8a8b6/49h/1h/0h/0/0]02c78c918069e82d1bd5b698160ade7c42ed39f927c7738a27df797c614efa47ff))#6txv95yy", "parent_descs": ["sh(wpkh(tpubD6NzVbkrYhZ4YY3Un6NGoLN8g85aeZ6rBBfT6FmGDEk4PQ8VacqPnoiKcSoS6PMyfoGx2bG6WKBGqZaY5zTeX47sQSQrhEc7PLAnthYS1qH/49h/1h/0h/0/*))#zrxhg9w2"], "safe": true}]
+DEBUG:BitcoinRPC:-10-> createrawtransaction [[{"txid": "2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78", "vout": 1}], {"2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9": 0.5, "2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG": 0.4999}]
+DEBUG:BitcoinRPC:<-10- "0200000001789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000000fdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af6008700000000"
+DEBUG:BitcoinRPC:-11-> decoderawtransaction ["0200000001789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000000fdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af6008700000000"]
+DEBUG:BitcoinRPC:<-11- {"txid": "15eef148e2827b0ae484d82fd9f502a9dbdd31e72d915f3416bbe3238c7287cf", "hash": "15eef148e2827b0ae484d82fd9f502a9dbdd31e72d915f3416bbe3238c7287cf", "version": 2, "size": 115, "vsize": 115, "weight": 460, "locktime": 0, "vin": [{"txid": "2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78", "vout": 1, "scriptSig": {"asm": "", "hex": ""}, "sequence": 4294967293}], "vout": [{"value": 0.5, "n": 0, "scriptPubKey": {"asm": "OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL", "desc": "addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh", "hex": "a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787", "address": "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9", "type": "scripthash"}}, {"value": 0.4999, "n": 1, "scriptPubKey": {"asm": "OP_HASH160 2fb7eacfd19ad7f6bc05aed27101739df49af600 OP_EQUAL", "desc": "addr(2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG)#sp6js4zh", "hex": "a9142fb7eacfd19ad7f6bc05aed27101739df49af60087", "address": "2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG", "type": "scripthash"}}]}
+
+ScriptPubKey (Challenge) for Address B':
+{'asm': 'OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL', 'desc': 'addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh', 'hex': 'a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787', 'address': '2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9', 'type': 'scripthash'} 
+
+DEBUG:BitcoinRPC:-12-> signrawtransactionwithwallet ["0200000001789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000000fdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af6008700000000"]
+DEBUG:BitcoinRPC:<-12- {"hex": "02000000000101789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000017160014e5428bb121740bd6230cd189fd7abfb75436960dfdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af600870247304402205b2b6f86bcd49014a0890e48eac52949ba9265373179103879560f923ea7ab6102205a8712e5c9d50fea31bec974f0c43b41a1994e857f904940b88bc2fae8e2bd88012102c78c918069e82d1bd5b698160ade7c42ed39f927c7738a27df797c614efa47ff00000000", "complete": true}
+
+Transaction successfully signed
+
+DEBUG:BitcoinRPC:-13-> sendrawtransaction ["02000000000101789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000017160014e5428bb121740bd6230cd189fd7abfb75436960dfdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af600870247304402205b2b6f86bcd49014a0890e48eac52949ba9265373179103879560f923ea7ab6102205a8712e5c9d50fea31bec974f0c43b41a1994e857f904940b88bc2fae8e2bd88012102c78c918069e82d1bd5b698160ade7c42ed39f927c7738a27df797c614efa47ff00000000"]
+DEBUG:BitcoinRPC:<-13- "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c"
+
+Transaction A' to B': 6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c
+
+DEBUG:BitcoinRPC:-14-> getnewaddress []
+DEBUG:BitcoinRPC:<-14- "bcrt1q47zssl0ul6m4qshjud7a06j3xt5d0alv2vyjk2"
+DEBUG:BitcoinRPC:-15-> generatetoaddress [1, "bcrt1q47zssl0ul6m4qshjud7a06j3xt5d0alv2vyjk2"]
+DEBUG:BitcoinRPC:<-15- ["0fa2ac2204992ef2217c22e0090078f883ecc812785ec0115f70485551857ab4"]
+DEBUG:BitcoinRPC:-16-> getrawtransaction ["6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", true]
+DEBUG:BitcoinRPC:<-16- {"txid": "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", "hash": "a4103189bb2a6ae3bdbf9e873bce5152e24c116e4c3af36baafb885c7fda265b", "version": 2, "size": 247, "vsize": 166, "weight": 661, "locktime": 0, "vin": [{"txid": "2aa55a7ca3f3fd283fab29842a4d506ca993c3542f7fcc61a5a10442761e9c78", "vout": 1, "scriptSig": {"asm": "0014e5428bb121740bd6230cd189fd7abfb75436960d", "hex": "160014e5428bb121740bd6230cd189fd7abfb75436960d"}, "txinwitness": ["304402205b2b6f86bcd49014a0890e48eac52949ba9265373179103879560f923ea7ab6102205a8712e5c9d50fea31bec974f0c43b41a1994e857f904940b88bc2fae8e2bd8801", "02c78c918069e82d1bd5b698160ade7c42ed39f927c7738a27df797c614efa47ff"], "sequence": 4294967293}], "vout": [{"value": 0.5, "n": 0, "scriptPubKey": {"asm": "OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL", "desc": "addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh", "hex": "a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787", "address": "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9", "type": "scripthash"}}, {"value": 0.4999, "n": 1, "scriptPubKey": {"asm": "OP_HASH160 2fb7eacfd19ad7f6bc05aed27101739df49af600 OP_EQUAL", "desc": "addr(2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG)#sp6js4zh", "hex": "a9142fb7eacfd19ad7f6bc05aed27101739df49af60087", "address": "2MwbY56NSb27hDgoy6MArCSNDSjZ54gMvfG", "type": "scripthash"}}], "hex": "02000000000101789c1e764204a1a561cc7f2f54c393a96c504d2a8429ab3f28fdf3a37c5aa52a0100000017160014e5428bb121740bd6230cd189fd7abfb75436960dfdffffff0280f0fa020000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678770c9fa020000000017a9142fb7eacfd19ad7f6bc05aed27101739df49af600870247304402205b2b6f86bcd49014a0890e48eac52949ba9265373179103879560f923ea7ab6102205a8712e5c9d50fea31bec974f0c43b41a1994e857f904940b88bc2fae8e2bd88012102c78c918069e82d1bd5b698160ade7c42ed39f927c7738a27df797c614efa47ff00000000", "blockhash": "0fa2ac2204992ef2217c22e0090078f883ecc812785ec0115f70485551857ab4", "confirmations": 1, "time": 1742725707, "blocktime": 1742725707}
+
+ScriptSig (Response) from Address A' to Address B':
+{'asm': '0014e5428bb121740bd6230cd189fd7abfb75436960d', 'hex': '160014e5428bb121740bd6230cd189fd7abfb75436960d'} 
+
+DEBUG:BitcoinRPC:-17-> listunspent [1, 9999999, ["2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9"]]
+DEBUG:BitcoinRPC:<-17- [{"txid": "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", "vout": 0, "address": "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9", "label": "", "redeemScript": "00147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1", "scriptPubKey": "a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787", "amount": 0.5, "confirmations": 1, "spendable": true, "solvable": true, "desc": "sh(wpkh([d8d8a8b6/49h/1h/0h/0/1]0220b6848ca7397d91ac5149c294462dbdda4bb9521bc669b319f033718e7af2e2))#rewnxdh7", "parent_descs": ["sh(wpkh(tpubD6NzVbkrYhZ4YY3Un6NGoLN8g85aeZ6rBBfT6FmGDEk4PQ8VacqPnoiKcSoS6PMyfoGx2bG6WKBGqZaY5zTeX47sQSQrhEc7PLAnthYS1qH/49h/1h/0h/0/*))#zrxhg9w2"], "safe": true}]
+DEBUG:BitcoinRPC:-18-> createrawtransaction [[{"txid": "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", "vout": 0}], {"2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU": 0.25, "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9": 0.2499}]
+DEBUG:BitcoinRPC:<-18- "02000000018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a0000000000fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678700000000"
+DEBUG:BitcoinRPC:-19-> decoderawtransaction ["02000000018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a0000000000fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678700000000"]
+DEBUG:BitcoinRPC:<-19- {"txid": "29a29ffb47829662bcd460096e4ebfcfc85ee6a085037e8bc576fa5f6ad917aa", "hash": "29a29ffb47829662bcd460096e4ebfcfc85ee6a085037e8bc576fa5f6ad917aa", "version": 2, "size": 115, "vsize": 115, "weight": 460, "locktime": 0, "vin": [{"txid": "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", "vout": 0, "scriptSig": {"asm": "", "hex": ""}, "sequence": 4294967293}], "vout": [{"value": 0.25, "n": 0, "scriptPubKey": {"asm": "OP_HASH160 3b936aa1c056f0418b0ce445d26975977a490780 OP_EQUAL", "desc": "addr(2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU)#8wdzxwgc", "hex": "a9143b936aa1c056f0418b0ce445d26975977a49078087", "address": "2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU", "type": "scripthash"}}, {"value": 0.2499, "n": 1, "scriptPubKey": {"asm": "OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL", "desc": "addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh", "hex": "a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787", "address": "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9", "type": "scripthash"}}]}
+
+ScriptPubKey (Challenge) for Address C':
+{'asm': 'OP_HASH160 3b936aa1c056f0418b0ce445d26975977a490780 OP_EQUAL', 'desc': 'addr(2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU)#8wdzxwgc', 'hex': 'a9143b936aa1c056f0418b0ce445d26975977a49078087', 'address': '2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU', 'type': 'scripthash'} 
+
+DEBUG:BitcoinRPC:-20-> signrawtransactionwithwallet ["02000000018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a0000000000fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678700000000"]
+DEBUG:BitcoinRPC:<-20- {"hex": "020000000001018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a00000000171600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678702473044022063205dff3980bd7caa7294e35ac10e9e845aa9e4e4a97f0e9f7a0f1142f79f2f0220388299919faa1fdca4dcbc3bf94aea23b17532556d05af2523f18bdfd1c315e301210220b6848ca7397d91ac5149c294462dbdda4bb9521bc669b319f033718e7af2e200000000", "complete": true}
+
+Transaction successfully signed
+
+DEBUG:BitcoinRPC:-21-> sendrawtransaction ["020000000001018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a00000000171600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678702473044022063205dff3980bd7caa7294e35ac10e9e845aa9e4e4a97f0e9f7a0f1142f79f2f0220388299919faa1fdca4dcbc3bf94aea23b17532556d05af2523f18bdfd1c315e301210220b6848ca7397d91ac5149c294462dbdda4bb9521bc669b319f033718e7af2e200000000"]
+DEBUG:BitcoinRPC:<-21- "502e5ed2dd0d4ceb2bc3977c06664befca03cbb86bdc9ba37f24919562ca5834"
+
+Transaction B' to C': 502e5ed2dd0d4ceb2bc3977c06664befca03cbb86bdc9ba37f24919562ca5834
+
+DEBUG:BitcoinRPC:-22-> getnewaddress []
+DEBUG:BitcoinRPC:<-22- "bcrt1qfxa8e26yxkuq306rtdudwdrtzmgphjv5sztqxu"
+DEBUG:BitcoinRPC:-23-> generatetoaddress [1, "bcrt1qfxa8e26yxkuq306rtdudwdrtzmgphjv5sztqxu"]
+DEBUG:BitcoinRPC:<-23- ["0293fe27384a7cd5dcb6c39c8fcab3bd5fe64786dc53840ede5af370c93b7267"]
+DEBUG:BitcoinRPC:-24-> getrawtransaction ["502e5ed2dd0d4ceb2bc3977c06664befca03cbb86bdc9ba37f24919562ca5834", true]
+DEBUG:BitcoinRPC:<-24- {"txid": "502e5ed2dd0d4ceb2bc3977c06664befca03cbb86bdc9ba37f24919562ca5834", "hash": "bef8e2552f943d7ae62a9a12ede2282c6330c35f0409b2e6594003c8fd6f2dc7", "version": 2, "size": 247, "vsize": 166, "weight": 661, "locktime": 0, "vin": [{"txid": "6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c", "vout": 0, "scriptSig": {"asm": "00147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1", "hex": "1600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1"}, "txinwitness": ["3044022063205dff3980bd7caa7294e35ac10e9e845aa9e4e4a97f0e9f7a0f1142f79f2f0220388299919faa1fdca4dcbc3bf94aea23b17532556d05af2523f18bdfd1c315e301", "0220b6848ca7397d91ac5149c294462dbdda4bb9521bc669b319f033718e7af2e2"], "sequence": 4294967293}], "vout": [{"value": 0.25, "n": 0, "scriptPubKey": {"asm": "OP_HASH160 3b936aa1c056f0418b0ce445d26975977a490780 OP_EQUAL", "desc": "addr(2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU)#8wdzxwgc", "hex": "a9143b936aa1c056f0418b0ce445d26975977a49078087", "address": "2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU", "type": "scripthash"}}, {"value": 0.2499, "n": 1, "scriptPubKey": {"asm": "OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL", "desc": "addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh", "hex": "a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787", "address": "2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9", "type": "scripthash"}}], "hex": "020000000001018c4c7a18358ced7bf22dac0513b855cd1a4247fddf1a7183aaccab084b00eb6a00000000171600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1fdffffff0240787d010000000017a9143b936aa1c056f0418b0ce445d26975977a4907808730517d010000000017a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef678702473044022063205dff3980bd7caa7294e35ac10e9e845aa9e4e4a97f0e9f7a0f1142f79f2f0220388299919faa1fdca4dcbc3bf94aea23b17532556d05af2523f18bdfd1c315e301210220b6848ca7397d91ac5149c294462dbdda4bb9521bc669b319f033718e7af2e200000000", "blockhash": "0293fe27384a7cd5dcb6c39c8fcab3bd5fe64786dc53840ede5af370c93b7267", "confirmations": 1, "time": 1742725707, "blocktime": 1742725707}
+
+ScriptSig (Response) from Address B' to Address C':
+{'asm': '00147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1', 'hex': '1600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1'} 
+
+
+Analysis:
+Transaction ID from A' to B': 6aeb004b08abccaa83711adffd47421acd55b81305ac2df27bed8c35187a4c8c
+Transaction ID from B' to C': 502e5ed2dd0d4ceb2bc3977c06664befca03cbb86bdc9ba37f24919562ca5834
+
+
+Final Transaction Size (A' to B'): 247 bytes
+Final Virtual Transaction Size (A' to B'): 166 bytes
+
+
+Final Transaction Size (B' to C'): 247 bytes
+Final Virtual Transaction Size (B' to C'): 166 bytes
+
+
+Challenge and Response Scripts:
+ScriptPubKey (Challenge) for Address B': {'asm': 'OP_HASH160 b897b61cb7cdb951b2a61e0fd8b49ea163c4ef67 OP_EQUAL', 'desc': 'addr(2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9)#c9zffurh', 'hex': 'a914b897b61cb7cdb951b2a61e0fd8b49ea163c4ef6787', 'address': '2NA5G4fvdTpkELh4R75G3GfYNhTG5YHeLS9', 'type': 'scripthash'}
+ScriptSig (Response) from Address A' to Address B': {'asm': '0014e5428bb121740bd6230cd189fd7abfb75436960d', 'hex': '160014e5428bb121740bd6230cd189fd7abfb75436960d'}
+
+ScriptPubKey (Challenge) for Address C': {'asm': 'OP_HASH160 3b936aa1c056f0418b0ce445d26975977a490780 OP_EQUAL', 'desc': 'addr(2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU)#8wdzxwgc', 'hex': 'a9143b936aa1c056f0418b0ce445d26975977a49078087', 'address': '2MxgETHK7EMk1zhMhj8NZbSf6ZMtg7pXQdU', 'type': 'scripthash'}
+ScriptSig (Response) from Address B' to Address C': {'asm': '00147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1', 'hex': '1600147871ee6a2d31b84ffbe6cb96e61f750df20a0ec1'}
+
+Use Bitcoin Debugger to validate these scripts.
+
+DEBUG:BitcoinRPC:-25-> getmempoolinfo []
+DEBUG:BitcoinRPC:<-25- {"loaded": true, "size": 0, "bytes": 0, "usage": 32, "total_fee": 0.0, "maxmempool": 300000000, "mempoolminfee": 1e-05, "minrelaytxfee": 1e-05, "incrementalrelayfee": 1e-05, "unbroadcastcount": 0, "fullrbf": false}
+
+Mempool info: {'loaded': True, 'size': 0, 'bytes': 0, 'usage': 32, 'total_fee': Decimal('0E-8'), 'maxmempool': 300000000, 'mempoolminfee': Decimal('0.00001000'), 'minrelaytxfee': Decimal('0.00001000'), 'incrementalrelayfee': Decimal('0.00001000'), 'unbroadcastcount': 0, 'fullrbf': False}
+
+DEBUG:BitcoinRPC:-26-> getblockchaininfo []
+DEBUG:BitcoinRPC:<-26- {"chain": "regtest", "blocks": 104, "headers": 104, "bestblockhash": "0293fe27384a7cd5dcb6c39c8fcab3bd5fe64786dc53840ede5af370c93b7267", "difficulty": 0.0, "time": 1742725707, "mediantime": 1742725699, "verificationprogress": 1, "initialblockdownload": false, "chainwork": "00000000000000000000000000000000000000000000000000000000000000d2", "size_on_disk": 32066, "pruned": false, "warnings": ""}
+
+Blockchain info: {'chain': 'regtest', 'blocks': 104, 'headers': 104, 'bestblockhash': '0293fe27384a7cd5dcb6c39c8fcab3bd5fe64786dc53840ede5af370c93b7267', 'difficulty': Decimal('4.656542373906925E-10'), 'time': 1742725707, 'mediantime': 1742725699, 'verificationprogress': 1, 'initialblockdownload': False, 'chainwork': '00000000000000000000000000000000000000000000000000000000000000d2', 'size_on_disk': 32066, 'pruned': False, 'warnings': ''}
+
+(bitcoin_env) nipun-samal@nipun-samal-HP-Pavilion-Laptop-14-ec1xxx:~/Downloads$ 
